@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "CustomPhysics2D/1.0.0": {
+        "runtime": {
+          "CustomPhysics2D.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CustomPhysics2D/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
