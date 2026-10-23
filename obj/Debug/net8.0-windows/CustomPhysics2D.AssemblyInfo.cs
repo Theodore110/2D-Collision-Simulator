@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CustomPhysics2D")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+624b7f76186f0af0697888bdb152b88f67f4e229")]
 [assembly: System.Reflection.AssemblyProductAttribute("CustomPhysics2D")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CustomPhysics2D")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

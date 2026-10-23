@@ -19,7 +19,7 @@ public sealed class PhysicsWorld
     /// <summary>
     /// Impacts slower than this value are treated as non-bouncy.
     /// </summary>
-    public float RestitutionThreshold { get; set; } = 0.5f;
+    public float RestitutionThreshold { get; set; } = 1f;
 
     /// <summary>
     /// Percentage of penetration removed per solver correction.
@@ -107,6 +107,27 @@ public sealed class PhysicsWorld
                 body.SetVelocity(
                     body.Velocity * damping);
             }
+        }
+        // ------------------------------------------------------------
+        // 5. Integrate positions.
+        //
+        // x(t+dt) = x(t) + v(t+dt)*dt
+        // ------------------------------------------------------------
+
+        for (int i = 0;
+             i < _bodies.Count;
+             i++)
+        {
+            RigidBody body =
+                _bodies[i];
+
+            if (body.IsStatic)
+                continue;
+
+            body.Position +=
+                body.Velocity * dt;
+
+            body.ClearForces();
         }
 
         // ------------------------------------------------------------
@@ -204,27 +225,6 @@ public sealed class PhysicsWorld
                 PenetrationSlop);
         }
 
-        // ------------------------------------------------------------
-        // 5. Integrate positions.
-        //
-        // x(t+dt) = x(t) + v(t+dt)*dt
-        // ------------------------------------------------------------
-
-        for (int i = 0;
-             i < _bodies.Count;
-             i++)
-        {
-            RigidBody body =
-                _bodies[i];
-
-            if (body.IsStatic)
-                continue;
-
-            body.Position +=
-                body.Velocity * dt;
-
-            body.ClearForces();
-        }
     }
 
     private readonly struct CollisionPair

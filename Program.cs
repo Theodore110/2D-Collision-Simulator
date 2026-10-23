@@ -175,7 +175,7 @@ public sealed class SimulationForm : Form
     {
         Vector2 v = (target - item.Body.Position) * 12f;
 
-        float speed = v.Length();
+        float speed = v.Length;
 
         if (speed > 25f)
         {
@@ -300,7 +300,7 @@ public sealed class SimulationForm : Form
             case Keys.F:
                 {
                     Point p = PointToClient(Cursor.Position);
-                    //_sim.Blast(_camera.ScreenToWorld(new Vector2(p.X, p.Y)), 6f, 14f);
+                    _sim.Blast(_camera.ScreenToWorld(new Vector2(p.X, p.Y)), 6f, 14f);
                     break;
                 }
 

@@ -196,7 +196,7 @@ public sealed class Simulation
             }
 
             Vector2 d = item.Body.Position - center;
-            float dist = d.Length();
+            float dist = d.Length;
 
             if (dist >= radius)
             {

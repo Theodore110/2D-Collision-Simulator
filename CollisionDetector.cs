@@ -15,19 +15,19 @@ public static class CollisionDetector
             return CircleVsCircle(circleA, circleB);
 
         if (a is Circle circle && b is Box box)
-            return CircleVsBox(circle, box);
+        {
+            CollisionManifold manifold = CircleVsBox(circle, box);
+
+            if (manifold.HasCollision)
+                manifold.Normal = -manifold.Normal;
+
+            return manifold;
+        }
 
         if (a is Box boxA && b is Circle circleB2)
         {
-            CollisionManifold manifold = CircleVsBox(circleB2, boxA);
-
-            if (!manifold.HasCollision)
-                return manifold;
-
-            // CircleVsBox produces a normal Box -> Circle.
-            // Swap it because our public convention is A -> B.
-            manifold.Normal = -manifold.Normal;
-            return manifold;
+            // CircleVsBox returns Box -> Circle, which is already A -> B.
+            return CircleVsBox(circleB2, boxA);
         }
 
         if (a is Box box1 && b is Box box2)
